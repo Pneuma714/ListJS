@@ -3,18 +3,20 @@ HTMLElement.prototype.list = function () {
         defaultItemHTML: '',
         listItem: [],
 
-        add: (...args) => {
+        add: (props, ...args) => {
             const item = document.createElement('div');
+            Object.assign(item, props);
+            
             item.innerHTML = this.defaultItemHTML.replace(/%\d+/g, q => args[q.slice(1)]);
             this.listItem.push(item);
             this.appendChild(item);
         },
 
-        get: index => listItem[index],
+        get: index => this.listItem[index],
 
         remove: index => {
-            listItem[index].remove();
-            listItem.splice(index, 1);
+            this.listItem[index].remove();
+            this.listItem.splice(index, 1);
         }
     });
 }
