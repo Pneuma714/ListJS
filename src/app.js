@@ -3,7 +3,7 @@ HTMLElement.prototype.list = function () {
         defaultItemHTML: '',
         listItem: [],
 
-        add: (props, ...args) => {
+        add(props, ...args) {
             const item = document.createElement('div');
             Object.assign(item, props);
             
@@ -12,9 +12,9 @@ HTMLElement.prototype.list = function () {
             this.appendChild(item);
         },
 
-        get: index => this.listItem[index],
+        get(index) { return this.listItem[index] },
 
-        remove: index => {
+        remove(index) {
             this.listItem[index].remove();
             this.listItem.splice(index, 1);
         }
