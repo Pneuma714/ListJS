@@ -2,14 +2,16 @@
   "name": "listjs",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node ./debug/debug.js"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "webpack": "^4.43.0",
     "webpack-cli": "^3.3.12"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
   }
 }
