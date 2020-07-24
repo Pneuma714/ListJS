@@ -1,9 +1,12 @@
-HTMLElement.prototype.list = function () {
+HTMLElement.prototype.list = function (defaultItemHTML, seperatorHTML) {
     Object.assign(this, {
-        defaultItemHTML: '',
+        defaultItemHTML: defaultItemHTML || '',
         listItem: [],
+        seperatorHTML: seperatorHTML || '',
 
-        add(props, ...args) {
+        addItem(props, ...args) {
+            if (this.listItem.length !== 1) this.innerHTML += this.seperatorHTML;
+
             const item = document.createElement('div');
             Object.assign(item, props);
             
@@ -11,12 +14,20 @@ HTMLElement.prototype.list = function () {
             this.listItem.push(item);
             this.appendChild(item);
         },
+        
+        getItem(index) { return this.listItem[index] },
 
-        get(index) { return this.listItem[index] },
-
-        remove(index) {
+        removeItem(index) {
             this.listItem[index].remove();
             this.listItem.splice(index, 1);
+        },
+
+        setDefaultItem(html = '%0') {
+            this.defaultItemHTML = html;
+        },
+
+        setSeperator(html = '<hr>') {
+            this.seperatorHTML = html;
         }
     });
 }
