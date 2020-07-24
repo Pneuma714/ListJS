@@ -93,7 +93,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("HTMLElement.prototype.list = function () {\r\n    Object.assign(this, {\r\n        defaultItemHTML: '',\r\n        listItem: [],\r\n\r\n        add: (...args) => {\r\n            const item = document.createElement('div');\r\n            item.innerHTML = this.defaultHTML.replace(/%\\d+/g, q => args[q.slice(1)]);\r\n            this.listItem.push(item);\r\n            this.appendChild(item);\r\n        },\r\n\r\n        get: index => listItem[index],\r\n        \r\n        remove: index => {\r\n            listItem[index].remove();\r\n            listItem.splice(index, 1);\r\n        }\r\n    });\r\n}\n\n//# sourceURL=webpack:///./src/app.js?");
+eval("HTMLElement.prototype.list = function () {\r\n    Object.assign(this, {\r\n        defaultItemHTML: '',\r\n        listItem: [],\r\n\r\n        add: (...args) => {\r\n            const item = document.createElement('div');\r\n            item.innerHTML = this.defaultItemHTML.replace(/%\\d+/g, q => args[q.slice(1)]);\r\n            this.listItem.push(item);\r\n            this.appendChild(item);\r\n        },\r\n\r\n        get: index => listItem[index],\r\n\r\n        remove: index => {\r\n            listItem[index].remove();\r\n            listItem.splice(index, 1);\r\n        }\r\n    });\r\n}\n\n//# sourceURL=webpack:///./src/app.js?");
 
 /***/ })
 
